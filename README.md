@@ -1,1 +1,1 @@
-# homework_python_sky
+# домашнее залание Python
