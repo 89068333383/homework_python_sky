@@ -1,5 +1,6 @@
 ﻿__pycache__/
 *.pyc
 .venv/
-.idea/
-*.log
+venv/
+.pytest_cache/
+get-pip.py
