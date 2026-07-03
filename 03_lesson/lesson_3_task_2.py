@@ -1,4 +1,4 @@
-from Lesson_3_3 import Smartphone
+from smartphone import Smartphone
 catalog = [] 
 catalog.append(Smartphone("Бабушка старушка", "Тряпочная", "+79000000000"))
 catalog.append(Smartphone("Зайкины ушки", "Лесная", "+79000000001"))
