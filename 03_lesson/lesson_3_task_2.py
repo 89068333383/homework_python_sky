@@ -1,6 +1,7 @@
 from smartphone import Smartphone
-catalog = [] 
-catalog.append(Smartphone("Бабушка старушка", "Тряпочная", "+79000000000"))
+
+catalog = []
+Ctrl + Shift + Xog.append(Smartphone("Бабушка старушка", "Тряпочная", "+79000000000"))
 catalog.append(Smartphone("Зайкины ушки", "Лесная", "+79000000001"))
 catalog.append(Smartphone("Стукачек", "По тарелочкам", "+79000000002"))
 catalog.append(Smartphone("Голубиная", "Перелетом", "+79000000003"))
