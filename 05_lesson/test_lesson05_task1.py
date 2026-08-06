@@ -22,7 +22,7 @@ def test_navigation():
 # ghjdthrf 
     assert driver.current_url == "https://httpbin.qa-territory.online/"
     print(driver.current_url)
-
+    print("Тест пройден!")
     driver.quit()
 
 test_navigation()
