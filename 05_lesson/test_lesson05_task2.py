@@ -2,6 +2,7 @@ from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+
 def test_form_submission():
     driver = webdriver.Chrome()
     driver.get("https://httpbin.qa-territory.online/forms/post")
@@ -13,9 +14,11 @@ def test_form_submission():
     sleep(2)
     submit_btn = driver.find_element(By.XPATH, "//button[text()='Submit order']")
     submit_btn.click()
-    assert driver.current_url.endswith("/forms/post"), f"URL не совпал: {driver.current_url}"
-    print(driver.current_url)   
+    assert driver.current_url.endswith(
+        "/forms/post"
+    ), f"URL не совпал: {driver.current_url}"
+    print(driver.current_url)
     driver.quit()
+
+
 test_form_submission()
-
-

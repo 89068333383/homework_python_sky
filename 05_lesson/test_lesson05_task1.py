@@ -1,28 +1,31 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+
 def test_navigation():
     driver = webdriver.Chrome()
 
-# Открыть страницу авторизации: https://httpbin.qa-territory.online
+    # Открыть страницу авторизации: https://httpbin.qa-territory.online
     driver.get("https://httpbin.qa-territory.online")
     driver.maximize_window()
-   
 
-# Найти и кликнуть на ссылку HTML Form.
+    # Найти и кликнуть на ссылку HTML Form.
     driver.find_element(By.LINK_TEXT, "HTML Form").click()
-   
 
-# Проверка URL
-    assert driver.current_url.endswith("/forms/post"), f"URL не совпал: {driver.current_url}"
+    # Проверка URL
+    assert driver.current_url.endswith(
+        "/forms/post"
+    ), f"URL не совпал: {driver.current_url}"
     print(driver.current_url)
 
-#назад
+    # назад
     driver.back()
-# ghjdthrf 
+    # ghjdthrf
     assert driver.current_url == "https://httpbin.qa-territory.online/"
     print(driver.current_url)
+
     print("Тест пройден!")
     driver.quit()
+
 
 test_navigation()
