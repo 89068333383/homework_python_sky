@@ -54,4 +54,4 @@ def test_shop():
         total_cost_value == 58.29
     ), f"Итоговая сумма должна быть 58.29, но получена {total_cost_value}"
 
-    driver.get("http://www.saucedemo.com/")
+    driver.get()
