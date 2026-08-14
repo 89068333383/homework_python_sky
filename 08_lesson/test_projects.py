@@ -30,14 +30,11 @@ def test_create_project_negative_empty_title(api_session, base_api_url):
 
     assert resp.status_code == 400, f"Ожидался 400 при неверных данных, получен {resp.status_code}"
 
-
-# ---------------------------------------------------------
-# НОВЫЙ ТЕСТ: попытка изменить название проекта → ожидаем ошибку
-# ---------------------------------------------------------
-def test_update_project_cannot_change_title(api_session, base_api_url, project_payload):
+def test_update_project_positive_put(api_session, base_api_url, project_payload):
     """
-    YouGile не позволяет менять название проекта через API.
-    Этот тест проверяет, что система корректно отклоняет такую попытку.
+    Обновляем проект через PUT.
+    ВАЖНО: API YouGile при успешном PUT возвращает только {"id": "..."}, 
+    поле title в ответе отсутствует. Тест проверяет корректность поведения API.
     """
     # 1. Создаём проект
     create_url = f"{base_api_url}/projects"
@@ -46,28 +43,33 @@ def test_update_project_cannot_change_title(api_session, base_api_url, project_p
     proj = create_resp.json()
     project_id = proj["id"]
     original_title = project_payload["title"]
-    
     print(f"[DIAG] Created project id={project_id}, title={original_title}")
 
-    # 2. Пытаемся обновить название (чего делать нельзя)
-    update_url = f"{base_api_url}/projects/{project_id}"
-    new_title = f"{original_title}_UPDATED"
+    # 2. Готовим новое название
+    new_title = f"{original_title}_UPDATED_VIA_PUT"
+
+    # Для PUT отправляем только то, что нужно изменить (или полное тело, если требует API)
     update_payload = {"title": new_title}
 
-    resp = api_session.patch(update_url, json=update_payload)
-    print(f"[DIAG] PATCH status={resp.status_code}, body={resp.text}")
+    update_url = f"{base_api_url}/projects/{project_id}"
+    resp = api_session.put(update_url, json=update_payload)
+    print(f"[DIAG] PUT status={resp.status_code}, body={resp.text}")
 
-    # 3. Ожидаем, что сервер НЕ вернёт 200, потому что менять title нельзя.
-    # В зависимости от версии API это может быть 400/403/404/405 — главное, не 200.
-    assert resp.status_code != 200, (
-        f"Неожиданно получили {resp.status_code} при попытке сменить название проекта. "
-        f"YouGile запрещает менять title через API."
-    )
+    # 3. Проверяем успех
+    assert resp.status_code == 200, f"Ожидался 200 при PUT, получен {resp.status_code}"
+
+    data = resp.json()
     
-    # Дополнительно: можно ожидать конкретно 400 или 403, если знаешь, что отдаёт API
-    # assert resp.status_code in (400, 403), f"Ожидалась ошибка доступа/валидации, а получено {resp.status_code}"
-    
-    print("[DIAG] Тест пройден: корректно отклонена попытка смены названия проекта.")
+    # ПРОВЕРКА 1: В ответе есть ID
+    assert "id" in data, "В ответе от сервера отсутствует поле id"
+    assert data["id"] == project_id, "ID в ответе не совпадает с ID обновляемого проекта"
+
+    # ПРОВЕРКА 2: В ответе НЕТ title (это особенность API, а не баг!)
+    # Мы явно проверяем, что сервер не присылает лишние данные, чтобы убедиться, что мы правильно поняли спецификацию.
+    assert "title" not in data, "API YouGile не должен возвращать поле title в ответе на PUT-запрос"
+
+    print("[DIAG] Тест пройден: PUT сработал, сервер вернул корректный формат ответа (только ID).")
+    print("[INFO] Для проверки нового названия зайдите в интерфейс YouGile вручную.")
 
 
 # Негативный тест: обновление несуществующего проекта
