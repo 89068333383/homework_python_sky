@@ -64,8 +64,9 @@ class CalculatorPage:
                 EC.element_to_be_clickable((By.XPATH, xpath)))
             btn.click()
 
-        # Страховочная пауза после последнего клика
-        time.sleep(2)
+       # Вместо time.sleep(2) ждём появления результата «15» на экране
+        self.wait.until(EC.text_to_be_present_in_element(
+            self.RESULT_VALUE, "15"))
 
     def get_result(self) -> str:
         """
