@@ -27,7 +27,6 @@ class CheckoutPage:
     def fill_info(self, first_name="Oxana", last_name="Kl", postal_code="450000"):
         """
         Заполняет форму данных покупателя.
-
         Args:
             first_name (str): Имя покупателя.
             last_name (str): Фамилия покупателя.

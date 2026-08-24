@@ -11,7 +11,7 @@ class InventoryPage:
     def __init__(self, driver):
         """
         Инициализирует страницу каталога.
-        Args:
+        Args: 
             driver (selenium.webdriver): Экземпляр драйвера браузера.
         """
          

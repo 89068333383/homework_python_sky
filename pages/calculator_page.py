@@ -16,7 +16,6 @@ class CalculatorPage:
     def __init__(self, driver, url):
         """
         Инициализирует страницу калькулятора.
-
         Args:
             driver (selenium.webdriver): Экземпляр драйвера браузера.
             url (str): URL страницы калькулятора.

@@ -12,7 +12,6 @@ class LoginPage:
     def __init__(self, driver):
         """
         Инициализирует страницу.
-
         Args:
             driver (selenium.webdriver): Экземпляр драйвера браузера.
         """
@@ -26,10 +25,8 @@ class LoginPage:
     def open(self, url: str = "http://www.saucedemo.com/") -> None:
         """
         Открывает указанную страницу в браузере.
-
         Args:
             url (str): Адрес страницы для перехода. По умолчанию — главная страница магазина.
-
         Returns:
             None
         """
@@ -38,11 +35,9 @@ class LoginPage:
     def login(self, username: str = "standard_user", password: str = "secret_sauce") -> None:
         """
         Выполняет вход в систему с указанными учетными данными.
-
         Args:
             username (str): Логин пользователя.
             password (str): Пароль пользователя.
-
         Returns:
             None
         """

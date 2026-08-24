@@ -8,8 +8,7 @@ from pages.calculator_page import CalculatorPage
 def driver():
     """
     Фикстура для создания и управления экземпляром браузера Chrome.
-    
-    Yields:
+        Yields:
         webdriver.Chrome: Экземпляр драйвера Chrome, готовый к использованию в тестах.
     """
     driver = webdriver.Chrome()
