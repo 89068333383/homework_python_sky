@@ -1,0 +1,15 @@
+{
+  "Server": "QRATOR",
+  "Date": "Fri, 28 Aug 2026 07:39:57 GMT",
+  "Content-Type": "text/html; charset=utf-8",
+  "Transfer-Encoding": "chunked",
+  "Connection": "keep-alive",
+  "Keep-Alive": "timeout=15",
+  "Vary": "Accept-Encoding, Accept-Encoding, Accept-Encoding, Accept-Encoding",
+  "X-Powered-By": "Express",
+  "Set-Cookie": "i18n_redirected=ru; Path=/; Expires=Sat, 28 Aug 2027 07:39:56 GMT; SameSite=Lax, MTS_LOCATION=%7B%22id%22%3A%2277000000000000000000000000%22%2C%22title%22%3A%22%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%22%2C%22administrativeCenterId%22%3A%2277000000000000000000000000%22%2C%22garId%22%3A%220c5b2444-70a0-4932-980c-b4dc0d3f02b5%22%7D; Max-Age=31104000; Domain=.mts.ru; Path=/, MTS_LOCATION_CODE=77000000000000000000000000; Max-Age=31104000; Domain=.mts.ru; Path=/, NEW_CART_API_FRONT=0:0; Path=/; Domain=.shop.mts.ru; Expires=2027-08-23T07:39:56Z; Max-age=31104000, LK_FRONT=1:100; Path=/; Domain=.shop.mts.ru; Expires=2027-08-23T07:39:56Z; Max-age=31104000, NEW_SOURCE_CATALOG=0:NaN; Path=/; Domain=.shop.mts.ru; Expires=2027-08-23T07:39:56Z; Max-age=31104000, MTS_CHAT_FRONT=1:100; Path=/; Domain=.shop.mts.ru; Expires=2027-08-23T07:39:56Z; Max-age=31104000, qrator_msid=v2.0.1787902796.659.5bf44e1cpDZdW0uc|hSClnnrIclfUsz0A|zKdrKQuTgPaOGbV/N7B+nSKveRq15+g7E+TFB25DcUMo4+F+QKnSoQsaWJw4nar1YTAQGRcP/FA4nZI4VbwSEA==-2oSKAjZV1aiHFoWYJXlNe58lU8k=; Max-Age=1000; Path=/; HttpOnly; SameSite=None; Secure; Domain=.mts.ru;",
+  "Content-Encoding": "gzip",
+  "Cache-Control": "no-cache, no-store, must-revalidate",
+  "Pragma": "no-cache",
+  "Expires": "0"
+}
